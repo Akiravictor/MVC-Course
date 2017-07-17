@@ -1,0 +1,23 @@
+﻿@model AkiraMovies.ViewModels.RandomMovieViewModel
+@{
+	ViewBag.Title = "RandomMovie";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Movie.Name</h2>
+
+@{ 
+	if(Model.Customers.Count == 0)
+	{
+		<p>No one has rented this!</p>
+	}
+	<ul>
+		@foreach (var cust in Model.Customers)
+		{
+			<li>@cust.Name</li>
+		}
+	</ul>
+	
+}
+
+
