@@ -1,0 +1,19 @@
+﻿@model AkiraMovies.Models.CustomerModels
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+
+@{ 
+	if(Model == null)
+	{
+		<p>Oh no, the customer you are trying to search does not exist!</p>
+	}
+	else
+	{
+		<h3>@Model.Name</h3>
+	}
+}
+
