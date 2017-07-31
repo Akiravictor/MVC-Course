@@ -10,8 +10,20 @@ namespace AkiraMovies.Controllers
 {
 	public class MoviesController : Controller
 	{
-		// GET: Movie/Random
-		public ActionResult Random()
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        // GET: Movie/Random
+        public ActionResult Random()
 		{
 			var movie = new MovieModels() { Name = "Star Wars" };
 			var customers = new List<CustomerModels>
@@ -36,35 +48,22 @@ namespace AkiraMovies.Controllers
 
 		public ActionResult Index(int? pageIndex, string sortBy)
 		{
-			//if (!pageIndex.HasValue)
-			//{
-			//	pageIndex = 1;
-			//}
-			//if (String.IsNullOrWhiteSpace(sortBy))
-			//{
-			//	sortBy = "Name";
-			//}
-
-			//var search = String.Format("PageIndex={0}&SortBy={1}", pageIndex, sortBy)
-
-			var movies = GetMovies();
+            var movies = _context.Movies.ToList();
 
 			return View(movies);
 		}
+
+        public ActionResult Details(int id)
+        {
+            var movie = _context.Movies.FirstOrDefault(a => a.Id == id);
+
+            return View(movie);
+        }
 
 		[Route(@"movie/released/{year:regex(\d{4})}/{month:regex(\d{2}):range(1,12)}")]
 		public ActionResult ByReleaseDate(int year, int month)
 		{
 			return Content(year + "/" + month);
-		}
-
-		private IEnumerable<MovieModels> GetMovies()
-		{
-			return new List<MovieModels>()
-			{
-				new MovieModels{Id = 1, Name = "Star Wars"},
-				new MovieModels{Id = 2, Name = "The Lord of the Rings"}
-			};
 		}
 	}
 }

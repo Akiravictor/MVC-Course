@@ -14,6 +14,13 @@
 	else
 	{
 		<h3>@Model.Name</h3>
+
+        <li>Membership Type: @Model.MembershipType.Name</li>
+
+        if (Model.Birthdate.HasValue)
+        {
+            <li>Birthdate: @Model.Birthdate.Value.ToString("dd/MM/yyyy")</li>
+        }
 	}
 }
 

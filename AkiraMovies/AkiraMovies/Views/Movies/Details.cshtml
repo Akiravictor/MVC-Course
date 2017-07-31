@@ -1,0 +1,24 @@
+﻿@model AkiraMovies.Models.MovieModels
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+
+@{ 
+    if(Model == null)
+    {
+        <p> Oh no, the movie you are trying to search does not exist!</p>
+    }
+    else
+    {
+        <h3>@Model.Name</h3>
+        <li>Genre: @Model.Genre</li>
+        <li>Release Date: @Model.ReleaseDate.ToString("dddd, MMMM dd, yyyy")</li>
+        <li>Added Date: @Model.AddedDate.ToString("dddd, MMMM dd, yyyy")</li>
+        <li>Number in Stock: @Model.NumberInStock</li>
+
+    }
+}
+

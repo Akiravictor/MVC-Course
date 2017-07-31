@@ -20,6 +20,12 @@ namespace AkiraMovies.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<CustomerModels> Customers { get; set; }
+
+        public DbSet<MovieModels> Movies { get; set; }
+
+        public DbSet<MembershipTypeModels> MembershipTypes { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
