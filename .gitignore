@@ -2,6 +2,7 @@
 *.user
 bin
 obj
+AkiraMovies/AkiraMovies/obj/Debug
 *.mdf
 *.ldf
 *.cache
