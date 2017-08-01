@@ -50,7 +50,7 @@ namespace AkiraMovies.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Customer customer)
+        public ActionResult Create(CustomerModels customer)
         {
 
 
