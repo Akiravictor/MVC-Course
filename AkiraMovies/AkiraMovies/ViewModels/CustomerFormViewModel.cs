@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AkiraMovies.ViewModels
 {
-    public class NewCustomerViewModel
+    public class CustomerFormViewModel
     {
         public IEnumerable<MembershipTypeModels> MembershipTypes { get; set; }
         public CustomerModels Customer { get; set; }
