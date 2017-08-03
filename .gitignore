@@ -6,3 +6,7 @@ bin
 obj
 *.mdf
 *.ldf
+AkiraMovies/AkiraMovies/Properties/
+AkiraMovies/AkiraMovies/bin/
+AkiraMovies/AkiraMovies/obj/
+*.suo
