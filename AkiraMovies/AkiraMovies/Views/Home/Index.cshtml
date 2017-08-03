@@ -1,31 +1,255 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<style>
+	/* Global */
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+a {
+	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease;
+	}
+	a:hover {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+		filter: alpha(opacity=50); /* IE7 */
+		opacity: 0.6;
+		text-decoration: none;
+	}
+
+
+/* Container */
+.container-fluid {
+	background: #fff;
+	margin: 40px auto 10px;
+	padding: 20px 0px;
+	max-width: 960px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Header */
+.div-page-header {
+	background: #fff;
+	margin: -30px 0px 0px;
+	padding: 20px 40px;
+	border-top: 4px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	color: #000;
+	text-transform: uppercase;
+}
+.page-header h3 {
+	line-height: 0.88rem;
+	color: #a83b3b;
+}
+
+/* Thumbnail Box */
+.caption {
+	height: 140px;
+	width: 100%;
+	margin: 20px 0px;
+	padding: 20px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.caption .span4, .caption .span8 {
+	padding: 0px 20px;
+}
+.caption .span4 {
+	border-right: 1px dotted #CCCCCC;
+}
+.caption h3 {
+	color: #a83b3b;
+	line-height: 20px;
+	margin: 0 0 20px;
+	text-transform: uppercase;
+}
+.caption p {
+	font-size: 15px;
+	line-height: 1.6rem;
+	color: #a83b3b;
+}
+.btn.btn-mini {
+	background: #a83b3b;
+	border-radius: 0 0 0 0;
+	color: #fbf4e0;
+	font-size: 10px;
+	text-shadow: none !important;
+}
+.carousel-control {
+	top: 33%;
+}
+
+
+
+/* ADD-ON
+-------------------------------------------------- */
+body:after{
+	content:"less than 320px";
+	font-size:1rem;
+	font-weight:bold;
+	position:fixed;
+	bottom:0;
+	width:100%;
+	text-align:center;
+	color:#fff;
+	height:20px;
+	padding-top:0;
+	margin-left:0;
+	left:0
+}
+@@media only screen and (min-width:320px){
+	body:after{
+		content:"320 to 480px";
+		height:20px;
+		padding-top:0;
+		margin-left:0
+	}
+}
+@@media only screen and (min-width:480px){
+	body:after{
+		content:"480 to 768px";
+		height:20px;
+		padding-top:0;
+		margin-left:0
+	}
+}
+@@media only screen and (min-width:768px){
+	body:after{
+		content:"768 to 980px";
+		height:20px;
+		padding-top:0;
+		margin-left:0
+	}
+}
+@@media only screen and (min-width:980px){
+	body:after{
+		content:"980 to 1024px";
+		height:20px;
+		padding-top:0;
+		margin-left:0
+	}
+}
+@@media only screen and (min-width:1024px){
+	body:after{
+		content:"1024 and up";
+		height:20px;
+		padding-top:0;
+		margin-left:0
+	}
+}
+
+::selection { background: #ff5e99; color: #FFFFFF; text-shadow: 0; }
+::-moz-selection { background: #ff5e99; color: #FFFFFF; }
+
+a, a:focus, a:active, a:hover, object, embed { outline: none; }
+:-moz-any-link:focus { outline: none; }
+input::-moz-focus-inner { border: 0; }
+</style>
+
+<script>
+	// Carousel Auto-Cycle
+	$(document).ready(function () {
+		$('.carousel').carousel({
+			interval: 6000
+		})
+	});
+</script>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+
+			<div class="div-page-header">
+				<h3>Featured Movies</h3>
+			</div>
+
+			<div class="carousel slide" id="myCarousel">
+				<div class="carousel-inner">
+
+					<div class="item active">
+
+						<div class="bannerImage">
+							<img src="~/Images/the-prestige.jpg" alt="" class="img-center"/>
+						</div>
+
+						<div class="caption row-fluid">
+							<div class="span4">
+								<h3>The Prestige</h3>
+								<a class="btn btn-primary" href="#">&raquo; Read More</a>
+							</div>
+							<div class="span8">
+								<p>Two stage magicians engage in competitive one-upmanship in an attempt to create the ultimate stage illusion.</p>
+							</div>
+						</div>
+
+					</div><!-- /Slide1 -->
+
+					<div class="item">
+
+						<div class="bannerImage">
+							<img src="~/Images/lotr1.jpg" alt="" class="img-center"/>
+						</div>
+
+						<div class="caption row-fluid">
+							<div class="span4">
+								<h3>The Lord of the Rings: The Fellowship of the Ring</h3>
+								<a class="btn btn-primary" href="#">&raquo; Read More</a>
+							</div>
+							<div class="span8">
+								<p>A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle Earth from the Dark Lord Sauron.</p>
+							</div>
+						</div>
+
+					</div><!-- /Slide2 -->
+
+					<div class="item">
+
+						<div class="bannerImage">
+							<img src="~/Images/lotr2.jpg" alt="" class="img-center"/>
+						</div>
+
+						<div class="caption row-fluid">
+							<div class="span4">
+								<h3>The Lord of the Rings: The Two Towers</h3>
+								<a class="btn btn-primary" href="#">&raquo; Read More</a>
+							</div>
+							<div class="span8">
+								<p>While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.</p>
+							</div>
+						</div>
+
+					</div><!-- /Slide3 -->
+
+					<div class="item">
+
+						<div class="bannerImage">
+							<img src="~/Images/lotr3.jpg" alt="" class="img-center" />
+						</div>
+
+						<div class="caption row-fluid">
+							<div class="span4">
+								<h3>The Lord of the Rings: The Return of the King</h3>
+								<a class="btn btn-primary" href="#">&raquo; Read More</a>
+							</div>
+							<div class="span8">
+								<p>Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.</p>
+							</div>
+						</div>
+
+					</div><!-- /Slide4 -->
+
+				</div>
+
+				<div class="control-box">
+					<a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a>
+					<a data-slide="next" href="#myCarousel" class="right carousel-control">›</a>
+				</div><!-- /.control-box -->
+
+			</div><!-- /#myCarousel -->
+
+		</div><!-- /.span12 -->
+	</div><!-- /.row -->
+</div><!-- /.container -->
