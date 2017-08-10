@@ -5,7 +5,9 @@
 }
 
 <h2>Movies</h2>
-
+<p>
+	@Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+</p>
 @{ 
 	if(!Model.Any())
 	{
@@ -15,15 +17,15 @@
 	{
 		<table class="table table-bordered table-hover">
 			<thead>
-			    <th style="font-size:20px">Movie</th>
-                <th style="font-size:20px">Genre</th>
+				<th style="font-size:20px">Movie</th>
+				<th style="font-size:20px">Genre</th>
 			</thead>
 			<tbody>
 				@foreach (var mov in Model)
 				{
 					<tr>
-						<td>@Html.ActionLink(mov.Name, "Details", "Movies", new { id = mov.Id }, null)</td>
-						<td>@mov.Genre</td>
+						<td>@Html.ActionLink(mov.Name, "Edit", "Movies", new { id = mov.Id }, null)</td>
+						<td>@mov.Genre.Name</td>
 					</tr>
 				}
 			</tbody>
