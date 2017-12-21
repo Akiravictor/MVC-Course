@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AkiraMovies.Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace AkiraMovies.Models
         public bool IsSubscribed { get; set; }
 
         [Display(Name = "Date of Birth")]
+		[MembershipTypeValidation]
         public DateTime? Birthdate { get; set; }
 
         public MembershipTypeModels MembershipType { get; set; }
