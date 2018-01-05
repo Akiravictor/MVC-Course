@@ -49,7 +49,7 @@ namespace AkiraMovies.Controllers
 			if (movie == null)
 				return HttpNotFound();
 
-			var viewModel = new MovieFormViewModel
+			var viewModel = new MovieFormViewModel(movie)
 			{
 				Movie = movie,
 				Genres = _context.Genres.ToList()
@@ -85,8 +85,19 @@ namespace AkiraMovies.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Save(MovieModels movie)
 		{
+			if (!ModelState.IsValid)
+			{
+				var viewModel = new MovieFormViewModel(movie)
+				{
+					Genres = _context.Genres.ToList()
+				};
+
+				return View("Movies");
+			}
+
 			if (movie.Id == 0)
 			{
 				movie.AddedDate = DateTime.Now;
