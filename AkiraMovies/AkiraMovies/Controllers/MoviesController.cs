@@ -51,7 +51,6 @@ namespace AkiraMovies.Controllers
 
 			var viewModel = new MovieFormViewModel(movie)
 			{
-				Movie = movie,
 				Genres = _context.Genres.ToList()
 			};
 
@@ -95,7 +94,7 @@ namespace AkiraMovies.Controllers
 					Genres = _context.Genres.ToList()
 				};
 
-				return View("Movies");
+				return View("Movies", viewModel);
 			}
 
 			if (movie.Id == 0)

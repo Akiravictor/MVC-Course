@@ -10,3 +10,6 @@ AkiraMovies/AkiraMovies/Properties/
 AkiraMovies/AkiraMovies/bin/
 AkiraMovies/AkiraMovies/obj/
 *.suo
+AkiraMovies/.vs/AkiraMovies/v15/
+AkiraMovies/packages/Microsoft.AspNet.WebApi.5.2.3/
+AkiraMovies/packages/
